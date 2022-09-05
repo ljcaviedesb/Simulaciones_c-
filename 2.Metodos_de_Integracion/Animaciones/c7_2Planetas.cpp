@@ -113,9 +113,10 @@ int main(){
   double t,tmax=20*T, dt=0.01;
   double tdibujo, tcuadro=T/100;
   int i;
-
+  // Sistema Sol-Júpiter
   Planeta[0].Inicie(x1,0,0,0,V1,0,m1,97.3);
   Planeta[1].Inicie(x2,0,0,0,V2,0,m2,10.0);
+  // Sistema Rotado
   
   //InicieAnimacion();
   for(t=0,tdibujo=0; t<=tmax; t+=dt, tdibujo+=dt){
