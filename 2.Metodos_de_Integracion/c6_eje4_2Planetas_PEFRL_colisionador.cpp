@@ -84,7 +84,7 @@ void Colisionador::CalculeFuerzaEntre(Cuerpo & Planeta1, Cuerpo &Planeta2){
 int main(){
   Cuerpo Planeta[N];
   Colisionador Newton;
-  double m1=10, m2=1, r=11;
+  double m1=10, m2=1, r=100;
   double M=m1+m2, x1=-m2*r/M, x2=m1*r/M;
   double omega = sqrt(G*m2/pow(r,3.0)), T=2*M_PI/omega, V1=omega*x1, V2=omega*x2;
   double t, dt=0.01;
@@ -92,9 +92,10 @@ int main(){
 
   Planeta[0].Inicie(x1,0,0,0,V1,0,m1,1.0);
   Planeta[1].Inicie(x2,0,0,0,V2,0,m2,0.5);
-
+  
   for(t=0;t<1.1*T; t+=dt)
     {
+      std::cout<<Planeta[0].Getx()<<" "<<Planeta[0].Gety()<<" ";
       std::cout<<Planeta[1].Getx()<<" "<<Planeta[1].Gety()<<std::endl;
       // Haga el movimiento y los calculos por PEFRL
       for(i=0;i<N;i++) Planeta[i].Mueva_r(dt, Zeta);            // 1 
@@ -112,5 +113,6 @@ int main(){
       for(i=0;i<N;i++) Planeta[i].Mueva_r(dt, Zeta);         // 1
     }
   
+  //std::cout<<T<<std::endl;
   return 0;
 }
